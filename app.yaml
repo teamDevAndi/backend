@@ -1,0 +1,14 @@
+runtime: nodejs20
+instance_class: F2
+
+env_variables:
+  HOST: '0.0.0.0'
+  DATABASE_CLIENT: 'mysql'
+  DATABASE_HOST: '/cloudsql/able-coast-447017-u7:us-central1:strapidb'
+  DATABASE_PORT: '3306'
+  DATABASE_NAME: 'strapidb'
+  DATABASE_USER: 'root'
+  DATABASE_PASSWORD: 'nCe"o96n&a1T_T2#'
+
+beta_settings:
+  cloud_sql_instances: 'able-coast-447017-u7:us-central1:strapidb'

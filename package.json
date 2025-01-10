@@ -9,11 +9,13 @@
     "develop": "strapi develop",
     "seed:example": "node ./scripts/seed.js",
     "start": "strapi start",
-    "strapi": "strapi"
+    "strapi": "strapi",
+    "gcp-build": "strapi build"
   },
   "dependencies": {
     "@strapi/plugin-cloud": "5.7.0",
     "@strapi/plugin-users-permissions": "5.7.0",
+    "@strapi/provider-upload-cloudinary": "^5.7.0",
     "@strapi/strapi": "5.7.0",
     "fs-extra": "^10.0.0",
     "mime-types": "^2.1.27",
@@ -23,7 +25,6 @@
     "react-router-dom": "^6.0.0",
     "styled-components": "^6.0.0"
   },
-  "devDependencies": {},
   "engines": {
     "node": ">=18.0.0 <=22.x.x",
     "npm": ">=6.0.0"
