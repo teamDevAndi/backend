@@ -1,4 +1,22 @@
 module.exports = ({env}) => ({
+    email: {
+      config: {
+        provider: 'nodemailer',
+        providerOptions: {
+          host: 'smtp.gmail.com', // Servidor SMTP de Gmail
+          port: 587, // Puerto SMTP de Gmail
+          secure: false, // Cambia a true si usas SSL (puerto 465)
+          auth: {
+            user: env('SMTP_USER'), // Tu correo de Gmail
+            pass: env('SMTP_PASS'), // Tu contraseña de Gmail o app password
+          },
+        },
+        settings: {
+          defaultFrom: env('SMTP_USER'), // El correo desde el que se envían los emails
+          defaultReplyTo: env('SMTP_USER'), // Correo para respuestas
+        },
+      },
+    },
     upload: {
         config: {
           provider: 'cloudinary',
