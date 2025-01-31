@@ -8,8 +8,6 @@ COPY package*.json ./
 
 RUN --mount=type=secret,id=serviceAccountFirebase_json,dst=/etc/secrets/serviceAccountFirebase.json cat /etc/secrets/serviceAccountFirebase.json
 
-CMD ["sh", "-c", "ls -la /etc/secrets"]
-
 RUN npm ci
 
 COPY . .
