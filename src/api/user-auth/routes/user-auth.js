@@ -29,8 +29,17 @@ module.exports = {
     },
     {
       method: 'POST',
-      path: '/auth/verification-code',
+      path: '/auth/verification-code-email',
       handler: 'user-auth.verifyVerificationCode',
+      config: {
+        policies: [],
+        middlewares: [],
+      },
+    },
+    {
+      method: 'POST',
+      path: '/auth/verification-code-reset',
+      handler: 'user-auth.verifyResetCode',
       config: {
         policies: [],
         middlewares: [],

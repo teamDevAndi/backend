@@ -46,11 +46,6 @@ module.exports = {
                 },
             });
 
-            // Actualizar el estado de verificación en Firebase (opcional)
-            await admin.auth().updateUser(registeredUser.firebase_uid, {
-                emailVerified: true,
-            });
-
             return ctx.send({ message: 'Usuario verificado exitosamente' });
         } catch (error) {
             console.error('Error al verificar el código:', error.message);
