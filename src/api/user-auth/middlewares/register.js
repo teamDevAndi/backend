@@ -22,11 +22,12 @@ module.exports = {
                 data: {
                     username: userName,
                     email,
+                    password,
                     provider: 'firebase',
                     firebase_uid: userRecord.uid,
                 },
             });
-            return ctx.send({ message: 'Usuario registrado exitosamente', user: newUser });
+            return ctx.send({ message: 'Usuario registrado exitosamente'});
         } catch (error) {
             console.error('Error al registrar usuario:', error.message);
             return ctx.badRequest('No se pudo registrar al usuario');

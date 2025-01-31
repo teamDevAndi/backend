@@ -5,7 +5,7 @@ module.exports = {
       path: '/auth/register',
       handler: 'user-auth.register',
       config: {
-          policies: [],
+        auth: false,
           middlewares: [],
       },
     },
@@ -14,7 +14,7 @@ module.exports = {
       path: '/auth/send-verification-code',
       handler: 'user-auth.sendVerificationCode',
       config: {
-        policies: [],
+        auth: false,
         middlewares: [],
       },
     },
@@ -23,7 +23,7 @@ module.exports = {
       path: '/auth/send-reset-code',
       handler: 'user-auth.sendResetCode',
       config: {
-        policies: [],
+        auth: false,
         middlewares: [],
       },
     },
@@ -32,7 +32,7 @@ module.exports = {
       path: '/auth/verification-code-email',
       handler: 'user-auth.verifyVerificationCode',
       config: {
-        policies: [],
+        auth: false,
         middlewares: [],
       },
     },
@@ -41,9 +41,36 @@ module.exports = {
       path: '/auth/verification-code-reset',
       handler: 'user-auth.verifyResetCode',
       config: {
-        policies: [],
+        auth: false,
         middlewares: [],
       },
     },
+    {
+      method: "POST",
+      path: "/auth/reset-password",
+      handler: "user-auth.resetPassword",
+      config: {
+        auth: false,
+        policies: [],
+      },
+    },
+    {
+      method: "POST",
+      path: "/auth/login",
+      handler: "user-auth.login",
+      config: {
+        auth: false,
+      },
+    },
+    {
+      method: "POST",
+      path: "/auth/survey",
+      handler: "user-auth.registerSurvey",
+      config: {
+        middlewares: ['api::user-auth.validate-token'],
+        // policies: ['api::user-auth.is-authenticated'],
+        auth: false,
+      },
+    }
   ],
 };
