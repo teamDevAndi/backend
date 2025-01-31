@@ -6,7 +6,7 @@ WORKDIR /usr/src/app
 
 COPY package*.json ./
 
-RUN --mount=type=secret,id=serviceAccountFirebase_json,dst=/etc/secrets/serviceAccountFirebase.json cat /etc/secrets/serviceAccountFirebase.json
+RUN --mount=type=secret,id=serviceAccountFirebase_json,dst=/etc/secrets/serviceAccountFirebase.json
 
 RUN npm ci
 
