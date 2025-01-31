@@ -35,7 +35,7 @@ module.exports = {
       strapi.entityService.update("plugin::users-permissions.user", user.id, {
         data: {
           password: newPassword,
-          resetCode: null,
+          resetPasswordToken: null,
         },
       });
 

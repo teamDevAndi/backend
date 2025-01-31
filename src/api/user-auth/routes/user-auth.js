@@ -62,5 +62,15 @@ module.exports = {
         auth: false,
       },
     },
+    {
+      method: "POST",
+      path: "/auth/survey",
+      handler: "user-auth.registerSurvey",
+      config: {
+        middlewares: ['api::user-auth.validate-token'],
+        // policies: ['api::user-auth.is-authenticated'],
+        auth: false,
+      },
+    }
   ],
 };

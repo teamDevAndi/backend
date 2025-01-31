@@ -2,6 +2,7 @@
 
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
+const authService = require("../services/user-auth");
 /**
  * `login` middleware
  */
@@ -29,26 +30,13 @@ module.exports = {
         return ctx.unauthorized("Usuario no encontrado");
       }
       
-      const passwordMatch = await bcrypt.compare(password, user.password);
+      const passwordMatch = await authService.validatePassword(password, user.password);
 
       if (!passwordMatch) {
         return ctx.unauthorized("Contraseña incorrecta");
       }
 
-      const secret = strapi.config.get("plugin.users-permissions.jwt.secret");
-      
-      const payload = {
-        id: user.id,
-        email: user.email,
-      };
-
-      const token = jwt.sign(
-        payload,
-        secret,
-        {
-          algorithm: "HS256",
-        }
-      );
+      const token = await authService.generateToken(user);
 
       return ctx.send({ token, user });
     } catch (error) {

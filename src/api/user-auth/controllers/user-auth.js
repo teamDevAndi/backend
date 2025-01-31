@@ -7,6 +7,7 @@ const verifyVerificationCode = require('../middlewares/verifyVerificationCode');
 const verifyResetCode = require('../middlewares/verifyResetCode');
 const resetPassword = require('../middlewares/resetPassword');
 const login = require('../middlewares/login');
+const registerSurvey = require('../middlewares/survey');
 
 module.exports = {
     ...register,
@@ -16,4 +17,5 @@ module.exports = {
     ...verifyResetCode,
     ...resetPassword,
     ...login,
+    ...registerSurvey,
 };

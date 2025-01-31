@@ -37,6 +37,7 @@ module.exports = ({ env }) => ({
       jwt: {
         secret: env("JWT_SECRET"),
         expiresIn: "7d",
+        algorithm: env("JWT_ALGORITHM"),
       }
     }
   }
