@@ -29,7 +29,6 @@ module.exports = {
       if (!user) {
         return ctx.unauthorized("Usuario no encontrado");
       }
-      
       const passwordMatch = await authService.validatePassword(password, user.password);
 
       if (!passwordMatch) {
@@ -38,9 +37,9 @@ module.exports = {
 
       const token = await authService.generateToken(user);
 
-      return ctx.send({ token, user });
+      return ctx.send({ token });
     } catch (error) {
-      console.log("Error al iniciar sesión:", error.message);
+      console.log("Error al iniciar sesión:", error);
       return ctx.badRequest("No se pudo iniciar sesión");
     }
   },
