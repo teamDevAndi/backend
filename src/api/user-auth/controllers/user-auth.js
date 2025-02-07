@@ -1,4 +1,5 @@
 'use strict';
+
 const admin = require('../../../config/firebase');
 const sendVerificationCode = require('../middlewares/sendVerificationCode');
 const register = require('../middlewares/register');
@@ -8,6 +9,7 @@ const verifyResetCode = require('../middlewares/verifyResetCode');
 const resetPassword = require('../middlewares/resetPassword');
 const login = require('../middlewares/login');
 const registerSurvey = require('../middlewares/survey');
+const emailExists = require('../middlewares/emailExists');
 
 module.exports = {
     ...register,
@@ -18,4 +20,5 @@ module.exports = {
     ...resetPassword,
     ...login,
     ...registerSurvey,
+    ...emailExists,
 };
