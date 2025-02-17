@@ -71,15 +71,6 @@ module.exports = {
         // policies: ['api::user-auth.is-authenticated'],
         auth: false,
       },
-    },
-    {
-      method: "GET",
-      path: "/auth/email-exists",
-      handler: "user-auth.emailExists",
-      config: {
-        middlewares: ['api::user-auth.emailExists'],
-        auth: false,
-      }
     }
   ],
 };
