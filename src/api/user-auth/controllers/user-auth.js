@@ -1,4 +1,5 @@
 'use strict';
+
 const admin = require('../../../config/firebase');
 const sendVerificationCode = require('../middlewares/sendVerificationCode');
 const register = require('../middlewares/register');

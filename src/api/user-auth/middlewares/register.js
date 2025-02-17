@@ -9,6 +9,19 @@ module.exports = {
         }
 
         try {
+            // Verify if the user already exists
+            const existingUsers = await strapi.entityService.findMany('plugin::users-permissions.user', {
+                filters: {
+                    $or: [
+                        { email },
+                    ],
+                },
+            });
+
+            if (existingUsers && existingUsers.length > 0) {
+                return ctx.badRequest('El correo electrónico o el usuario ya están registrados');
+            }
+
             // Crear usuario en Firebase
             const userRecord = await admin.auth().createUser({
                 username: userName,
@@ -27,7 +40,7 @@ module.exports = {
                     firebase_uid: userRecord.uid,
                 },
             });
-            return ctx.send({ message: 'Usuario registrado exitosamente'});
+            return ctx.send({ message: 'Usuario registrado exitosamente' });
         } catch (error) {
             console.error('Error al registrar usuario:', error.message);
             return ctx.badRequest('No se pudo registrar al usuario');

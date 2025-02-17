@@ -19,6 +19,7 @@
     "@strapi/provider-upload-cloudinary": "^5.7.0",
     "@strapi/strapi": "5.7.0",
     "bcryptjs": "^2.4.3",
+    "better-sqlite3": "^11.8.1",
     "firebase-admin": "^13.0.2",
     "fs-extra": "^10.0.0",
     "jsonwebtoken": "^9.0.2",
