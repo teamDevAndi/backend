@@ -9,9 +9,9 @@ const bcrypt = require("bcryptjs");
 
 module.exports = {
   async generateToken(user) {
-    const secret = strapi.config.get("plugin.users-permissions.jwt.secret");
+    const secret = strapi.config.get("plugin::users-permissions.jwt.secret");
     const algorithm = strapi.config.get(
-      "plugin.users-permissions.jwt.algorithm"
+      "plugin::users-permissions.jwt.algorithm"
     );
 
     const payload = {
@@ -29,9 +29,9 @@ module.exports = {
     return bcrypt.compare(password, hash);
   },
   async verifyToken(token) {
-    const secret = strapi.config.get("plugin.users-permissions.jwt.secret");
+    const secret = strapi.config.get("plugin::users-permissions.jwt.secret");
     const algorithm = strapi.config.get(
-      "plugin.users-permissions.jwt.algorithm"
+      "plugin::users-permissions.jwt.algorithm"
     );
 
     const payload = jwt.verify(token, secret, { algorithms: [algorithm] });
